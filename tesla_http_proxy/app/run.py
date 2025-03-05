@@ -53,6 +53,11 @@ parser.add_argument(
     help="Proxy host. Required if not provided in environment variable PROXY_HOST",
     default=os.environ.get("PROXY_HOST"),
 )
+parser.add_argument(
+    "--callbackurl",
+    help="oauth callback URL",
+    default=os.environ.get("CALLBACKURL"),
+)
 
 args = parser.parse_args()
 
@@ -62,6 +67,7 @@ if (
     or not args.domain
     or not args.region
     or not args.proxy_host
+    or not args.callbackurl
 ):
     parser.print_help()
     sys.exit(1)
@@ -89,6 +95,7 @@ def index():
         scopes=SCOPES,
         randomstate=uuid.uuid4().hex,
         randomnonce=uuid.uuid4().hex,
+        callbackurl=args.callbackurl
     )
 
 
