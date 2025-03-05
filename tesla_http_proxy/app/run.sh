@@ -17,6 +17,7 @@ echo "CLIENT_SECRET=Not Shown"
 echo DOMAIN=$DOMAIN
 echo PROXY_HOST=$PROXY_HOST
 echo REGION=$REGION
+echo CALLBACKURL=$CALLBACKURL
 
 generate_ssl_certs() {
   # generate self signed SSL certificate
